@@ -44,7 +44,6 @@ class WebhookRequest < ApplicationRecord
 
   def self.requeue_all
     where("retry_after < ? OR (retry_after IS NULL AND created_at<SUBTIME(?, '0:30:0.000000'))", Time.now, Time.now).limit(100).each(&:queue)
-    #where("retry_after < ?", Time.now).each(&:queue)
   end
 
   def queue

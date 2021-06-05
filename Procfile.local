@@ -1,0 +1,9 @@
+---
+root: "/opt/postal/app"
+user: postal
+processes:
+  worker:
+    quantity: 8
+  fast:
+    quantity: 1
+
